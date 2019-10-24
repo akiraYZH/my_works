@@ -1,0 +1,121 @@
+$content_width_lg:800px;
+$content_width_sm:100%;
+$lc_width:30%;
+$rc_width:69%;
+$primary_color: rgb(238, 99, 99);
+$secondary_color: rgb(167, 78, 78);
+$form_bgcolor:white;
+$m-lg:60px;
+$m-md:30px;
+$m-sm:10px;
+$fs-lg:2em;
+$fs-md:1.5em;
+$fs-sm:1em;
+
+
+@mixin center_block {
+    display: block;
+    margin: 0 auto;
+    
+}
+
+@mixin reset_mp{
+    margin:0;
+    padding: 0;
+}
+
+*{
+    @include reset_mp();
+}
+
+@media(min-width:800px){
+    .container{
+        width:$content_width_lg;
+        @include center_block();
+    }
+}
+@media(max-width:800px){
+    .container{
+        width:$content_width_sm;
+        @include center_block();
+    }
+}
+
+body{
+    background-color: $primary_color;
+}
+
+.container{
+
+    box-sizing: border-box;
+    padding: 50px;
+    background-color: $form_bgcolor;
+    border-radius: 50px;
+    margin-top: $m-lg;
+    overflow: hidden;
+
+    
+
+    .lc{
+            float: left;
+            // @include reset_mp();
+            width:$lc_width;
+            // border:1px solid black
+            
+        }
+
+        // h3{
+        //     float:left;
+        //     margin-right:$m-sm;
+        //     font-size: $fs-md;
+        // }
+    
+        .rc{
+            float:left;
+            width:$rc_width;
+            // border:1px solid black;
+            
+        }
+
+        input[type=text],input[type=email]{
+            box-sizing: border-box;
+            padding: 10px;
+            // width:100%;
+        }
+
+        // input[type = radio]{
+        //     position: relative;
+        //     top:-5px;
+            
+        // }
+
+        input[type = radio]:nth-of-type(odd){
+            margin-right: $m-lg;
+        }
+
+        h2{
+            display: inline-block;
+            font-size: $fs-sm;
+        }
+    }
+    
+    input[type=submit]{
+        width:100px;
+        height:50px;
+        border: none;
+        background-color: $primary_color;
+        border-radius: 10px;
+        &:hover{
+            background-color: $secondary_color; 
+            color:$form_bgcolor;
+    }
+    
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+    margin: $fs-sm 0;
+
+}

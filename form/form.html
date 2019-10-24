@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <div class="row">
+                <h2 class="lc">Name</h2>
+                <input class="rc" type="text" name="name" placeholder="Place input your name.">
+            </div>
+            <div class="row">
+                <h2 class="lc">E-mail</h2>
+                <input  class="rc" type="email" name="name" placeholder="Place input your E-mail.">
+            </div>
+            <div class="row">
+                <div class="lc">
+                    <h2>Gender</h2>
+                </div>
+                
+                <div class="rc">
+                        <h2>Male</h2>
+                        <input type="radio" name="gender" value="male">
+                        <h2>Female</h2>
+                        <input type="radio" name="gender" value="female">
+                </div>
+            </div>
+            <div class="row">
+                    <h2 class="lc">Profession</h2>
+                    <select name="profession" id="profession" style="width: 100px; height: 30px;">
+                        <option value="sales" selected>Sales</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                        <option value="other">Other</option>
+                    </select>
+            </div>
+            <div class="row">
+                    <h2 class="lc">Hobbies</h2>
+                    <div class="rc">
+                        <input type="checkbox" name="hobbies" value="games"><h2>Games</h2><br/>
+                        <input type="checkbox" name="hobbies" value="manga"><h2>Manga</h2><br/>
+                        <input type="checkbox" name="hobbies" value="films"><h2>Films</h2><br/>
+                        <input type="checkbox" name="hobbies" value="music"><h2>Music</h2><br/>
+                    </div>
+            </div>
+            <input type="submit" value="Submit">
+            
+        </form>
+
+    </div>
+</body>
+</html>
