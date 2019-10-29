@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Yu's Page</title>
+
+<!--[if lt IE9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"><script>
+<![endif]-->
+
+
+<style media="screen">
+  
+  
+  ：root {
+    --bound;
+  }
+
+  body{
+    background-color: black;
+    color: white;
+  }
+
+  .box{
+    width:var(--bound);
+    height:var(--bound);
+    background:yellow;
+    display: none;
+    position: relative;
+  }
+</style>
+</head>
+
+
+<body class="container">
+
+  <main></main><h2>测一测你的反应时间</h2></main>
+  <aside><p>你的反应时间是：<span id="time">0</span>秒。</p></aside>
+  <div class="box" id="box"></div>
+
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+
+    var timeCreated;
+    var timeClicked;
+    var reactionTime;
+
+
+    function makeBox() {
+
+      var time = (Math.random() * 2000);
+
+      var left = Math.floor(Math.random() * (window.innerWidth - 200));
+      var top = Math.floor(Math.random() * (window.innerHeight - 300));
+
+      var i = Math.random();
+      var dynamicBound;
+      if(i <= 0.5){
+
+        document.getElementById("box").style.borderRadius = "50%";
+      } else {
+          document.getElementById("box").style.borderRadius = "0";
+      }
+
+      if(window.innerHeight < window.innerWidth){
+
+        dynamicBound = (window.innerHeight/8) + "px" ;
+      } else {
+          dynamicBound = (window.innerWidth/8) + "px";
+      }
+      document.documentElement.style.setProperty("--bound", dynamicBound);
+
+      setTimeout(function(){
+
+         document.getElementById('box').style.backgroundColor = makeColor();
+        document.getElementById('box').style.display = "block";
+        document.getElementById('box').style.top = top + "px";
+        document.getElementById('box').style.left = left + "px";
+        timeCreated = Date.now();
+      }, time);  
+    };
+
+    function makeColor() {
+      
+      var r = Math.floor(Math.random() * 256);
+      var g = Math.floor(Math.random() * 256);
+      var b = Math.floor(Math.random() * 256);
+      var color = "rgba(" + r + "," + g + "," + b + ",1)";
+
+      return color;
+    }
+
+
+    makeBox()
+
+
+    
+
+    document.getElementById('box').onclick = function(){
+
+     
+      document.getElementById('box').style.display = "none";
+      timeClicked = Date.now();
+
+      
+
+      reactionTime = (timeClicked - timeCreated)/1000;
+    
+      document.getElementById('time').innerHTML = reactionTime;
+
+      makeBox();
+    }
+    
+    
+
+  </script>
+</body>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Yu's Page</title>
+
+<!--[if lt IE9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"><script>
+<![endif]-->
+
+
+<style media="screen">
+
+
+  :root {
+
+    --mouse-x;
+    --mouse-y;
+    --radius: 40px;
+    --factor: 1;
+    --scale;
+  }
+
+  body{
+    background-color: black;
+    color: white;
+  }
+
+  .ball{
+    width: var(--radius);
+    height: var(--radius);
+    background:white;
+    box-shadow: 0 0 40px yellow;
+    border-radius: 50%;
+    position: absolute;
+    /* top: var(--mouse-y);
+    left: var(--mouse-x); */
+    transform: translate(calc(var(--mouse-x) * 1px - var(--radius)/2), calc(var(--mouse-y) * 1px - var(--radius)/2));
+  }
+
+  .halo{
+    width: var(--radius);
+    height: var(--radius);
+    background:white;
+    box-shadow: 0 0 40px yellow;
+    border-radius: 50%;
+    position: absolute;
+    /* top: var(--mouse-y);
+    left: var(--mouse-x); */
+    transform: scale(calc(var(--factor) * var(--scale)));
+  }
+
+  .halo:nth-child(1){
+
+    --factor: 0.01;
+    opacity: 0.1;
+  }
+
+  .halo:nth-child(2){
+
+    --factor: 0.015;
+    opacity: 0.3;
+  }
+
+  .halo:nth-child(3){
+
+    --factor: 0.02;
+    opacity: 0.5;
+  }
+
+
+
+
+</style>
+</head>
+
+
+<body class="container">
+
+  <div class="ball" id="ball">
+    <div class="halo" id="halo"></div>
+    <div class="halo" id="halo"></div>
+    <div class="halo" id="halo"></div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+
+    var mouseX = 0;
+    var mouseY = 0;
+    var ballX = 0;
+    var ballY = 0;
+    var speed = 0.15;
+    var scale = 0;
+    const docStyle = document.documentElement.style;
+
+    document.addEventListener("mousemove", (mouseListener) =>{
+
+      mouseX = mouseListener.clientX;
+      mouseY = mouseListener.clientY;
+
+
+    });
+
+
+    function delayMotion(){
+
+
+      ballX = ballX + ((mouseX - ballX) * speed);
+      ballY = ballY + ((mouseY - ballY) * speed);
+
+      docStyle.setProperty("--mouse-x", ballX);
+      docStyle.setProperty("--mouse-y", ballY);
+
+
+
+      var velX = mouseX - ballX;
+      var velY = mouseY - ballY;
+      scale = velX + velY;
+      docStyle.setProperty("--scale", scale);
+      requestAnimationFrame(delayMotion);
+    };
+
+    delayMotion();
+
+  </script>
+</body>

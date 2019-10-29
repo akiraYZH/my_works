@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Yu's Page</title>
+
+<!--[if lt IE9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"><script>
+<![endif]-->
+
+  <script type="text/javascript" src="jQuery/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+  <link rel="stylesheet" href="jquery-ui/jquery-ui.theme.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+
+</head>
+
+
+<body>
+    <div class="menu">
+        <h2 id="title">Code Interpreter
+          <button id="interpret"><span>Interpret</span></button>
+        </h2>
+    </div>
+    <div class="clear" id="accordion">
+      <h3 class="tags" id="html_tag">HTML code</h3>
+      <div class="code_container" id="html_textarea">
+        <textarea rows="3" cols="30" id="html_code"></textarea>
+      </div>
+      <h3 class="tags" id="css_tag">CSS code</h3>
+      <div class="code_container" id="css_textarea">
+        <textarea rows="3" cols="30" id="css_code"></textarea>
+      </div>
+      <h3 class="tags" id="js_tag">javaScript code</h3>
+      <div class="code_container" id="js_textarea">
+        <textarea rows="3" cols="30"id="js_code"></textarea>
+      </div>
+    </div>
+    <div id="result">
+      <h2 id="result_title">Result</h2>
+      <iframe id="result_frame"></iframe>
+    </div>
+    <footer>
+      <h3>Personal project - simple code interpreter</h3>
+    </footer>
+
+<script type="text/javascript" src="javaScript/javaScript.js"></script>
+</body>
+</html>
