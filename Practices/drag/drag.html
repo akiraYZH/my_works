@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style>
+    .drageObject{
+      width:100px;
+      height:100px;
+      background-color:red;
+      color:white;
+      align-items: center;
+      display: flex;
+      margin:10px 10px 10px 0;
+      float: left;
+    }
+    .text{
+      display:block;
+      margin: auto;
+    }
+    .box{
+      border: 1px solid red;
+      box-sizing: border-box;
+      padding:20px;
+      width:600px;
+      height: 400px;
+
+    }
+
+    .clear{
+      clear:both;
+    }
+  </style>
+  <body>
+    <div class="drageObject">
+      <p class="text">index1</p>
+    </div>
+    <div class="drageObject">
+      <p class="text">index2</p>
+    </div>
+    <div class="drageObject">
+      <p class="text" id="index3">index3</p>
+    </div>
+    <div class="box clear">
+        <i>Please put inside this box.</i>
+    </div>
+    <script>
+      var object = document.querySelectorAll(".drageObject");
+      var box = document.querySelector(".box");
+
+      for(i=0;i<object.length;i++){
+        object[i].draggable="true";
+        object[i].index = i;
+        object[i].ondragstart = function(ev){
+          ev = ev||event;
+          ev.dataTransfer.setData("index", this.index);
+          this.style.background = "blue";
+          // alert(this.index);
+        }
+
+        object[i].ondragend = function(ev){
+          ev = ev||event;
+          this.style.background = "red";
+          // alert(this.index);
+        }
+
+
+      box.ondrop = function(ev){
+        ev.preventDefault();
+        var index = ev.dataTransfer.getData("index");
+        box.appendChild(object[index]);
+        box.style.background = "white";
+      }
+
+      box.ondragover = function(ev){
+        ev.preventDefault();
+        box.style.background = "gray";
+      }
+
+      box.ondragleave = function(ev){
+        box.style.background = "white";
+      }
+
+      // document.querySelector("body").ondrop = function(ev){
+      //   ev.preventDefault();
+      //   var index = ev.dataTransfer.getData("index");
+      //   document.querySelector("body").appendChild(object[index]);
+      // }
+      //
+      // document.querySelector("body").ondragover = function(ev){
+      //   ev.preventDefault();
+      //   document.querySelector("body").style.background = "gray";
+      // }
+      //
+      // document.querySelector("body").ondragleave = function(ev){
+      //   document.querySelector("body").style.background = "white";
+      // }
+
+      }
+    </script>
+  </body>
+</html>

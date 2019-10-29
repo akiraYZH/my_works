@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .box{
+        height:200px;
+        width:300px;
+        border:red 1px solid;
+        line-height: 10px;
+        text-align: center;
+      }
+      .show{
+        float:left;
+      }
+
+      .showDiv{
+        float: left;
+        margin-right: 5px;
+        margin-top: 20px;
+      }
+      .showImg{
+        width:50px;
+      }
+    </style>
+    <script type="text/javascript">
+      onload = function(){
+        var box = document.querySelector(".box");
+        var show = document.querySelector(".show");
+        var text = document.querySelector(".message");
+
+
+        box.ondragover = function(){
+          return false;
+        }
+
+        box.ondrop = function(ev){
+          ev = ev || window.event;
+
+          for(i=0;i<ev.dataTransfer.files.length;i++){
+            var fileReader = new FileReader();
+            fileReader.readAsDataURL(ev.dataTransfer.files[i]);
+
+            fileReader.onload = function(){
+              var showDiv = document.createElement("div");
+              show.appendChild(showDiv).classList.add("showDiv");
+
+              var showImg = document.createElement("img");
+              showImg.src = this.result;
+
+              showDiv.appendChild(showImg).classList.add("showImg");
+            }
+
+          }
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="box">
+      <p class="message">请把文件拖到这里</p>
+    </div>
+    <div class="show">
+    </div>
+    <p></p>
+  </body>
+</html>

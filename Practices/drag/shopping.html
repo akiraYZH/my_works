@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .cart{
+        background: gray;
+        min-height: 50px;
+        width: 300px;
+        color: white;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 1px;
+        position: fixed;
+        top:0px;
+        left:0px;
+        border: 1px gray solid;
+
+      }
+
+      .items{
+        margin: 100px auto;
+        display: block;
+        width: 800px;
+      }
+
+      .items li{
+        list-style-type: none;
+        width: 150px;
+        float: left;
+        border: 1px gray solid;
+        margin-left: 10px;
+        margin-bottom: 50px;
+      }
+      .items li img{
+        width: 150px;
+      }
+      .items li h3{
+        text-align: center;
+      }
+      .items li p{
+        text-align: center;
+      }
+      .itemCart{
+        background: white;
+        overflow: hidden;
+        border: 1px gray solid;
+      }
+      .cartItemText{
+        color: gray;
+        float: left;
+        display: inline-block;
+        margin: 0;
+        padding: 10px;
+
+
+      }
+      .cartImg{
+        width: 50px;
+        float: right;
+      }
+    </style>
+
+    <script type="text/javascript">
+      onload = function(){
+        var cart = document.querySelector(".cart");
+        var items = document.querySelectorAll(".items li");
+        var itemImg = document.querySelectorAll(".items li img");
+        var itemName = document.querySelectorAll(".items h3");
+        var itemPrice = document.querySelectorAll(".items p");
+
+        for(i=0;i<items.length;i++){
+          items[i].draggable = true;
+          itemImg[i].draggable = false;
+          items[i].index = i;
+
+
+          items[i].ondragstart = function(ev){
+            ev = ev||event;
+            ev.dataTransfer.setData("index",this.index);
+          }
+
+          cart.ondragover = function(ev){
+            ev.preventDefault();
+          }
+
+          cart.ondrop = function(ev){
+
+            ev.preventDefault();
+            // ev = ev||event;
+            var index = ev.dataTransfer.getData("index");
+
+            var itemCart = document.createElement("div");
+            itemCart.classList.add("itemCart");
+
+            var cartImg = document.createElement("img");
+            cartImg.src = itemImg[index].src;
+            cartImg.classList.add("cartImg");
+
+            var cartItemName = document.createElement("p");
+            cartItemName.innerHTML = itemName[index].innerHTML;
+            cartItemName.classList.add("cartItemText");
+
+            var cartItemPrice = document.createElement("p");
+            cartItemPrice.innerHTML = itemPrice[index].innerHTML;
+            cartItemPrice.classList.add("cartItemText");
+
+            itemCart.appendChild(cartItemName);
+            itemCart.appendChild(cartItemPrice);
+            itemCart.appendChild(cartImg);
+            cart.appendChild(itemCart);
+            // alert(index);
+
+          }
+
+        }
+
+      }
+    </script>
+  </head>
+
+
+
+  <body>
+    <div class="cart">
+      <p>Cart</p>
+    </div>
+    <ul class="items">
+      <li>
+        <img src="img/timg.jpeg" alt="item1">
+        <h3>商品1</h3>
+        <p>¥99</p>
+      </li>
+      <li>
+        <img src="img/timg.jpeg" alt="item2">
+        <h3>商品2</h3>
+        <p>¥99</p>
+      </li>
+      <li>
+        <img src="img/timg.jpeg" alt="item3">
+        <h3>商品3</h3>
+        <p>¥99</p>
+      </li>
+      <li>
+        <img src="img/timg.jpeg" alt="item4">
+        <h3>商品4</h3>
+        <p>¥99</p>
+      </li>
+    </ul>
+  </body>
+</html>
