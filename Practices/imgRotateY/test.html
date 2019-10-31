@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 800px;
+            margin: auto;
+            background-color: aquamarine;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .box {
+            width: 25%;
+            padding: 5px;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        img {
+            width: 100%;
+            display: inline-block;
+            border-radius: 10px;
+            /* box-shadow: 5px 5px 40px black; */
+            /* transform: rotateY(80deg); */
+
+        }
+    </style>
+    <script src="imgRotateY.js"></script>
+
+</head>
+
+<body>
+    <section class="container">
+        <div class="clearfix">
+            <div class="box">
+                <img src="img_5terre.jpg" alt="img_5terre">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio non et quis dolor tempore quae
+                    perferendis
+                    expedita inventore ipsa asperiores. Vel nesciunt officiis distinctio sint veniam nostrum laboriosam
+                    atque. Sequi!</p>
+            </div>
+            <div class="box">
+                <img src="img_forest.jpg" alt="img_5terre">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio non et quis dolor tempore quae
+                    perferendis
+                    expedita inventore ipsa asperiores. Vel nesciunt officiis distinctio sint veniam nostrum laboriosam
+                    atque. Sequi!</p>
+            </div>
+            <div class="box">
+                <img src="img_lights.jpg" alt="img_5terre">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio non et quis dolor tempore quae
+                    perferendis
+                    expedita inventore ipsa asperiores. Vel nesciunt officiis distinctio sint veniam nostrum laboriosam
+                    atque. Sequi!</p>
+            </div>
+            <div class="box">
+                <img src="img_mountains.jpg" alt="img_5terre">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio non et quis dolor tempore quae
+                    perferendis
+                    expedita inventore ipsa asperiores. Vel nesciunt officiis distinctio sint veniam nostrum laboriosam
+                    atque. Sequi!</p>
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class="box">
+                <img src="img_mountains.jpg" alt="img_5terre">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio non et quis dolor tempore quae
+                    perferendis
+                    expedita inventore ipsa asperiores. Vel nesciunt officiis distinctio sint veniam nostrum laboriosam
+                    atque. Sequi!</p>
+            </div>
+            <div class="box">
+                <img src="img_lights.jpg" alt="img_5terre">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio non et quis dolor tempore quae
+                    perferendis
+                    expedita inventore ipsa asperiores. Vel nesciunt officiis distinctio sint veniam nostrum laboriosam
+                    atque. Sequi!</p>
+            </div>
+            <div class="box">
+                <img src="img_forest.jpg" alt="img_5terre">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio non et quis dolor tempore quae
+                    perferendis
+                    expedita inventore ipsa asperiores. Vel nesciunt officiis distinctio sint veniam nostrum laboriosam
+                    atque. Sequi!</p>
+            </div>
+            <div class="box">
+                <img src="img_5terre.jpg" alt="img_5terre">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio non et quis dolor tempore quae
+                    perferendis
+                    expedita inventore ipsa asperiores. Vel nesciunt officiis distinctio sint veniam nostrum laboriosam
+                    atque. Sequi!</p>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+</html>
