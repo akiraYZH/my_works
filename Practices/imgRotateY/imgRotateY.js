@@ -4,7 +4,7 @@ onload = function () {
     imgRotateY(1);
 
     function imgRotateY(speed) {
-        var aImg = document.querySelectorAll("img");
+        var aImg = document.querySelectorAll(".imgRotateY");
         var n = new Array(aImg.length);
         var v = speed;
 
@@ -29,6 +29,9 @@ onload = function () {
 
                     timer = setInterval(function () {
                         ro.style.transform = "rotateY(" + n[ro.index] + "deg)";
+                        ro.style.webkitTransform = "rotateY(" + n[ro.index] + "deg)";
+                        ro.style.OTransform = "rotateY(" + n[ro.index] + "deg)";
+                        ro.style.MozTransform = "rotateY(" + n[ro.index] + "deg)";
 
                         n[ro.index] += v;
 
