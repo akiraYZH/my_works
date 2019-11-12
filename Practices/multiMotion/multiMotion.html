@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>multiMotion</title>
+    <style>
+        div {
+            width: 100px;
+            height: 50px;
+            background-color: red;
+            margin: 10px;
+            filter: alpha(opacity=30);
+            opacity: 0.3;
+            border: 10px solid black;
+        }
+    </style>
+    
+    <script>
+        onload = function () {
+            var aDiv = document.querySelectorAll('div');
+    
+            for (i = 0; i < aDiv.length; i++) {
+    
+                aDiv[i].timer = null;
+                
+    
+                aDiv[i].onmouseover = function () {
+
+                    var obj = this;
+                    startMove(obj, {width:400, height:51, opacity:100})
+    
+                }
+    
+                aDiv[i].onmouseout = function () {
+
+                    var obj = this;
+                    startMove(obj, {width:100, height:50 , opacity:30})
+                }
+            }
+    
+            // alert(aDiv.length);
+            
+        }
+    </script>
+    <script src="css2motion.js"></script>
+</head>
+
+<body>
+    <div>
+        <p>asdasd</p>
+    </div>
+    <div>
+        <p>asdasd</p>
+    </div>
+    <div>
+        <p>asdasd</p>
+    </div>
+</body>
+
+</html>
