@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width:200px;
+        height:200px;
+        background-color: brown;
+        position: absolute;
+    }
+</style>
+<script>
+    window.onload = function(){
+
+        var oDiv = document.querySelector('div');
+        // var timer = null;
+
+        document.onmousemove = function(ev){
+            
+            var ev = ev || event;
+            var mousePos = getMousePos(ev);
+
+            oDiv.style.left = mousePos.x ;
+            oDiv.style.top = mousePos.y ;
+        }
+
+    }
+</script>
+<script src="getMousePos.js"></script>
+<body>
+    <div></div>
+</body>
+</html>
