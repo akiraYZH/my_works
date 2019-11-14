@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="myAjax.js"></script>
+    <script>
+        onload=function(){
+            var oBtn = document.querySelector('#load');
+
+            //create ajax object
+            oBtn.onclick =function(){
+                ajax('data.txt', function(msg){
+                    // alert(msg);
+                    var arr = eval(msg);
+                    alert (arr[0].name);
+                    
+                }, function(msg){
+                    alert(msg);
+                });
+            }
+        }
+    </script>
+    
+</head>
+<body>
+    <input type="button" value="读 取" id='load'>
+</body>
+</html>
